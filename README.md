@@ -1,2 +1,2 @@
-# Volitality-model
-# This is the mateirals for courses financial.
+### Volitality Model
+#### This is the final project for course *Computer Programming in Financial Engineering*, including all the codes, reference, data etc. 
