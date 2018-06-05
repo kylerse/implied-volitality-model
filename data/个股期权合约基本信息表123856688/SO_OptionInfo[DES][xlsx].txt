@@ -1,0 +1,34 @@
+﻿SecurityID [证券ID] - ‘209’+9位自增长序列。如：209000000001、209000000002、………
+VarietyID [品种ID] - 个股期权品种ID‘1005’+3位自增长序列。如：1005001、1005002、………
+ExchangeCode [交易所代码] - SSE=上海证券交易所
+Symbol [交易代码] - ETF期权合约从90000001起按序对新挂牌合约进行编排，唯一，不复用。股票期权合约从10000001起按序对新挂牌合约进行编排，唯一，不复用。
+ContractCode [合约编码] - 合约编码为17位，按以下顺序填写： 第1至第6位为数字，取标的证券代码，如工商银行601398，取“601398”； 第7位为C(Call)或者P(Put)，分别表示认购期权或者认沽期权； 第8、9位表示到期年份； 第10、11位表示到期月份； 第12位期初设为“M”，表示月份合约。当合约首次调整后，“M”修改为“A”，以表示该合约被调整过一次，如发生第二次调整，则“A”修改为“B”、“M”修改为“A”，以此类推； 第13至17位表示期权行权价格。
+DeclareDate [公告日期] - 以yyyy-mm-dd表示，公告的发布日期
+ChangeDate [变动实施日期] - 以yyyy-mm-dd表示，公告中规定的变动实施日期。例如公告中如下表述：该变动从1311合约开始实施。则变动实施日期为1311公告的首日上市日期。
+ShortName [合约简称] - 期权合约简称不超过20个字符，按以下顺序填写（无分隔符或空格）：合约标的简称(直接取合约标的证券简称,不超过8个字符)；“购”（认购期权）或“沽”（认沽期权）；19到期月份；行权价格（不超过五位）；标志位，缺省为空，合约首次调整时修改为“A”，发生第二次调整，则“A”修改为“B”。例如：“工商银行购1月420”。
+UnderlyingExchangeCode [标的证券交易所代码] - 
+UnderlyingSecuritySymbol [标的证券交易代码] - 
+UnderlyingShortName [标的证券简称] - 
+UnderlyingType [标的证券类型] - EBS–上证ETF，ASH–上证A股
+BenchmarkPrice [挂牌基准价] - 交易所发布的通知中的各合约的挂牌基准价
+ListedDate [首日上市日期] - 合约的首日上市日期，为YYYYMMDD的日期格式
+LastTradingDate [最后交易日] - 合约的具体的最后交易日，为为YYYYMMDD的日期格式
+ExpireDate [到期日] - 
+ExerciseDate [行权日] - 
+DeliveryDate [交收日] - 
+CallOrPut [认购认沽] - 认购，则本字段为“C”；若为认沽，则本字段为“P”
+StrikePrice [行权价] - 
+StrikePriceInterval [行权价格间距] - 
+ContractMultiplierUnit [合约单位] - 经过除权除息调整后的合约单位,一定为整数
+MinChangeUnit [最小变动单位] - 各品种标准合约里规定的‘最小变动价位’
+ContractMonth [合约月份] - 合约的交割月份如最后交易日为2013-11-15的合约，该字段为201311
+FluctuationLimit [每日价格最大波动限制(%)] - 各品种标准合约中的规定。如：不超过上一交易日结算价±10%
+MaxLimit [最大涨跌幅限制(%)] - 各品种标准合约中的规定每日价格最大波动限制中的数值。如规定中为：不超过上一交易日结算价±10%，则该字段录入为0.10
+SpeculatePosLmt [个人投机持仓限额] - 
+CoveredPosLmt [个人备兑开仓持仓限额] - 
+CommonInstitutionPosLmt [一般机构持仓限额] - 
+OwnAccountPosLmt [自营账户持仓限额] - 
+MarketMakerPosLmt [做市商持仓限额] - 
+DealersPosLmt [自营商持仓限额] - 
+BrokersPosLmt [经纪商持仓限额] - 
+DataType [数据类型] - 1=正式交易；2=仿真交易。

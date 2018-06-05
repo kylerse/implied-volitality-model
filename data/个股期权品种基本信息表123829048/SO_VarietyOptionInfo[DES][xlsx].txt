@@ -1,0 +1,26 @@
+﻿VarietyID [品种ID] - 标识品种的唯一标识，同一个品种给一个品种ID。个股期权品种ID‘1005’+3位自增长序列。如：1005001、1005002、………
+TradingType [交易品种] - 个股期权
+DeclareDate [公告日期] - 以yyyy-mm-dd表示，公告的发布日期
+ChangeDate [变动实施日期] - 以yyyy-mm-dd表示，公告中规定的变动实施日期。例如公告中如下表述：该变动从1311合约开始实施。则变动实施日期为1311公告的首日上市日期。
+ExchangeCode [交易所代码] - SSE=上海证券交易所
+DeclareType [公告类型] - 0-新增；1-变动
+UnderlyingSecurityType [标的证券类型] - EBS–上证ETF，ASH–上证A股
+OptionType [期权类型] - 若为欧式期权，则本字段为“E”；若为美式期权，则本字段为“A”
+QuoteUnit [报价单位] - 手
+MinChangeUnit [最小变动价位] - 0.001元
+FluctuationLimit [每日价格最大波动限制] - 无固定幅度限制
+ContractMonth [合约月份] - 指的是合约到期月份为当月、下月及最近的两个季月（下季月与隔季月）,共四个月份。
+TradingTime [交易时间] - 为每个交易日9:15至9:25、9:30至11:30、13：00至15:00。其中，9:15至9:25为开盘集合竞价时间，且在9:22至9:25之间的三分钟内随机结束，其余时段为连续竞价时间。
+ExerciseTradingTime [行权日交易时间] - 行权时间为9：15－9：25、9：30-11：30、13：00－15：30。
+LastTradingDateRule [最后交易日规则] - 对最后交易日规则的表述。为每个合约到期月份的第四个星期三（遇法定节假日顺延）
+ExpireDateRule [到期日规则] - 对到期日规则的表述。为每个合约到期月份的第四个星期三（遇法定节假日顺延）
+ExerciseDate [行权日规则] - 对行权日规则的表述。为每个合约到期月份的第四个星期三（遇法定节假日顺延）
+DeliveryDateRule [交收日规则] - 对最交收日规则的表述。
+DeliveryMode [交割方式] - 
+MinTradingMargin [最低交易保证金] - 
+TradingFee [交易手续费] - 
+MaxMarketOrderVolume [单笔市价最大委托数量] - 交易所规定的单笔市价最大委托数量。50
+MaxLimitOrderVolume [单笔限价最大委托数量] - 交易所规定的单笔限价最大委托数量。100
+MinSingleBuyVolume [单笔最小买入量] - 交易所规定的单笔最小买入量。1
+MinSingleSellVolume [单笔最小卖出量] - 交易所规定的单笔最小卖出量。1
+DataType [数据类型] - 1=正式交易；2=仿真交易。
