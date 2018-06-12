@@ -8,4 +8,5 @@
 3. ARMA(2,1) model to predict nextday's parameters.
 ![arma](./pic/arma2.png)
 4. Kalman Filter (unfinished)
-
+5. Trading strategy comparision.
+![strategies](./pic/predict3.png)
