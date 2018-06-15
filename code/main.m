@@ -42,13 +42,13 @@ TradingDateNum = datenum(TradingDateStr);
 % ====================== Part Two: Clean Data =========================== 
 % The project intend to analyze the mechanism of implied volatility, this
 % task highly rely on high quality data, so a filtration and clean is
-% necessary. Here are some assumptions while we choose data:
+% necessary. Here are some assumptions while I choose data:
 %   1. Any contract that have too few trading volumn is invalid. Say, if
-%   trading  volumn is less than 10, we don't use it. 
+%   trading  volumn is less than 10, I don't use it. 
 %   2. After (1), any date that has no more that three type maturity is
-%   invalid. Because we want to fit the implied volatility surface, this
+%   invalid. Because I want to fit the implied volatility surface, this
 %   condition is compulsory, otherwise, it will be definitely overfitted. 
-%   3. Any contract with abnormal implied volatility is invalid. We ignore
+%   3. Any contract with abnormal implied volatility is invalid. I ignore
 %   some very strange data, most of them are at near maturity.
 % 
 %   PS. Some procedures are done in python script clean.py for convenience.
@@ -76,7 +76,7 @@ validDate = Dates(labels==1);
 % parameters. More work is done, however, here the final version is
 % presented. One biggest question here is to choose the model.
 % Simple models can't capture the characteristic while complicated models
-% are easily overfitted. So several caondidates are considered.
+% are easily overfitted. So several caondidates are considered. 
 % Those are:
 %    (1) sigma(m, t) = beta1 + beta2 * m + beta3 * t 
 %    (2) sigma(m, t) = beta1 + beta2 * m + beta3 * m^2
@@ -89,7 +89,7 @@ validDate = Dates(labels==1);
 %                        + beta5 * t * m + beta6 * t^2 + beta7 * m^3 
 %                        + beta8 * t^3 + beta9 * t * m^2 +beta10 * m * t^2
 %     ...
-% Consider both simplicity and accuracy, we choose model (6).
+% Consider both simplicity and accuracy, I choose model (6).
 
 observations = length(validDate);
 p1 = zeros(observations,1);
@@ -131,7 +131,38 @@ ylabel('Implied Volatility')
 % =======================================================================
 
 
-% ================== Part Three: Trading Strategy ======================== 
+
+
+
+% ================== Part Four: Time Series Model ======================== 
+% This part intend to capture the trend of the parameters' fluctuation, through
+% a AMRA(p,q)model, I develop a method to predict next day's parameters, therefore 
+% determine next day's volatility surface. This prediction is very important 
+% and meaningful, which I can use to build a intra-day trading strategy.
+% The model choosing basically follows to standard procedure, that is, AIC-BIC 
+% criteria. Finally, I decide to use ARMA(2,1)
+% When estimating the parameters at day t, we use all historical data before t.
+% So the model is updated everyday.
+
+predicted_p1 = zeros(size(p1));
+for i=20:420 % first several data points are skipped (no enough historical data)
+m = armax(p1(1:i),[2,1])  % build model 
+predicted(i+1) = forecast(m,p3(i-20:i),1); % predict next day's value
+end
+
+hold off
+plot(validDate,p3)
+hold on
+plot(validDate,predicted)
+dateaxis('x',2);
+xlabel('date')
+ylabel('p3')
+% =======================================================================
+
+
+
+
+% ================== Part Five: Trading Strategy ======================== 
 % This part develops a trading stratagy based on the estimated surface,
 % since we know implied volatility reflect how expensive a option is, we
 % can long those under-estimated ones and short those over-estimated ones,
@@ -198,8 +229,6 @@ end
 %RemainingTerm = RemainingTerm(cond);
 %DateNumber = DateNumber(cond);
 %OptionType = OptionType(cond);
-
-
 
 
 
