@@ -1,5 +1,5 @@
-### Implied Volitality Model
-#### This repository contains all the material used for the final project of course *Computer Programming in Financial Engineering* developed by Kai Xiang, including all the codes, reference, data etc.
+## Implied Volitality Model
+**This repository contains all the material used for the final project of course *Computer Programming in Financial Engineering* developed by Kai Xiang, including all the codes, reference, data etc.**
 
 ### Brief Q&A:
 Q: What is your question? 
@@ -29,13 +29,14 @@ So the contribution of this work is coming up with a quite noval trading strateg
 
 
 ### Several studies are finished in this project
-1. Collect option data of several stocks and indexes that are traded in Shanghai Stock Exchange. Link is [here](https://github.com/kylerse/implied-volitality-model/tree/master/data). I do some effort to merge these datasets into a single excel files, calculate some derivative parameters, rerange some important imformation such as option type, remaing term, trading date etc. 
+1. **Collect option data of several stocks and indexes that are traded in Shanghai Stock Exchange.** Link is [here](https://github.com/kylerse/implied-volitality-model/tree/master/data). I do some effort to merge these datasets into a single excel files, calculate some derivative parameters, rerange some important imformation such as option type, remaing term, trading date etc. 
 
-2. Using a multi-factor model to model the implied volatility surface.
+2. **Using a multi-factor model to model the implied volatility surface.** If we plot volatilities of different strike and maturity in one graph, we obtain an implied volatility surface, however, we want to find a approximation, a model that can use several parameters to determinate the surface. Here I using a multi-factor model, and it fit the surface pretty well, shown as below.
 ![surface](./pic/surface.png)
-3. ARMA(2,1) model to predict nextday's parameters.
-![arma](./pic/arma2.png)
-4. Kalman Filter (unfinished)
+
+3. **Time series model** An ARMA(2,1) model is established to predict nextday's parameters. Take parameter2 for example, the time series of data and prediction is shown as below, we can see the model capture the trend closely and have a pretty good prediciton.
+![arma](./pic/stragety1.png)
+
 5. Trading strategy comparision.
 ![strategies](./pic/predict3.png)
 
