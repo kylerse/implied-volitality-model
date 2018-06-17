@@ -37,7 +37,7 @@ So the contribution of this work is coming up with a quite noval trading strateg
 3. **Time series model** An ARMA(2,1) model is established to predict nextday's parameters. Take parameter2 for example, the time series of data and prediction is shown as below, we can see the model capture the trend closely and have a pretty good prediciton.
 ![arma](./pic/arma2.png)
 
-5. Trading strategy comparision. We compare the prediction-based strategy with the naive long-short strategy. The backtest result is presented below. We found that the performance really improves if we use our model's prediction.
+4. **Trading strategy comparision**. We compare the prediction-based strategy with the naive long-short strategy. The backtest result is presented below. We found that the performance really improves if we use our model's prediction.
 ![strategies](./pic/strategy2.png)
 
 ### Further extension
