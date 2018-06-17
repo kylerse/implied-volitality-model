@@ -35,9 +35,9 @@ So the contribution of this work is coming up with a quite noval trading strateg
 ![surface](./pic/surface.png)
 
 3. **Time series model** An ARMA(2,1) model is established to predict nextday's parameters. Take parameter2 for example, the time series of data and prediction is shown as below, we can see the model capture the trend closely and have a pretty good prediciton.
-![arma](./pic/stragety1.png)
+![arma](./pic/arma2.png)
 
 5. Trading strategy comparision.
-![strategies](./pic/predict3.png)
+![strategies](./pic/strategy2.png)
 
 #### Further extension
